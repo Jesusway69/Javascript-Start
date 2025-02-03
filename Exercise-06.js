@@ -9,7 +9,7 @@ Vídeo: https://youtu.be/1glVfFxj8a4?t=14146
 function sum(a, b) {
     return a + b
 }
-console.log("9 + 8 =", sum(9, 8),'\n')
+console.log("9 + 8 =", sum(9, 8), '\n')
 
 // 2. Crea una función que reciba un array de números y devuelva el mayor de ellos
 let numbers = [25, 8, 92, 7, 10, 50, 6, 32, 2, 71, 0, 5, 11, 97, 35, 46]
@@ -22,13 +22,13 @@ function max(numbers) {
     }
     return numMax
 }
-console.log("El número más alto de la lísta es el", max(numbers),'\n')
+console.log("El número más alto de la lísta es el", max(numbers), '\n')
 
 // 3. Crea una función que reciba un string y devuelva el número de vocales que contiene
 let vocals = 'aeiouáéíóöúüAEIOUÁÉÍÓÖÚ'
 let counter = 0
 function vocalCounter(str) {
-    for (vocal of str) {
+    for (let vocal of str) {
         for (char of vocals) {
             if (vocal == char) {
                 counter++
@@ -52,7 +52,7 @@ function upperator(strings) {
     }
     return upperStrings
 }
-console.log(upperator(strings),'\n')
+console.log(upperator(strings), '\n')
 
 // 5. Crea una función que reciba un número y devuelva true si es primo, y false en caso contrario
 function isPrime(num) {
@@ -85,7 +85,7 @@ function fruitsComparator(list1, list2) {
     }
     return fruits
 }
-console.log(fruitsComparator(fruits1, fruists2),'\n')
+console.log(fruitsComparator(fruits1, fruists2), '\n')
 
 
 
