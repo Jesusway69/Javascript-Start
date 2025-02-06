@@ -66,6 +66,7 @@ let renaultMegane = {
 }
 let cars = { ...toyotaCorolla, ...renaultMegane }
 console.log(cars) //si tiene elementos con la misma clave las del segundo objeto sobreescriben a las del primero
+
 // 9. Usa propagación para crear una copia de un objeto
 let toyotaCorolla2 = { ...toyotaCorolla }
 console.log(toyotaCorolla2)
