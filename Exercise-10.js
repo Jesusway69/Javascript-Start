@@ -23,7 +23,7 @@ try {
 
 // 2. Captura una excepción utilizando try-catch y finally
 try {
-    console.log(division(15, hola))
+    console.log(division(15, "hola"))
 } catch (ex) {
     console.log(`ERROR: ${ex.message}`)
 } finally {
@@ -54,24 +54,24 @@ try {
 
 // 6. Lanza varias excepciones según una lógica definida
 
-function findPosition(){
-    let numbers  = [1,2,3,4,5]
+function findPosition() {
+    let numbers = [1, 2, 3, 4, 5]
     console.log(numbers[position])
 }
 
-try{
+try {
     findPosition()
 
-}catch{
+} catch {
     console.log("ERROR: reference")
 }
 
-function salute(name){
-console.lo(`Hola ${name}`)
+function salute(name) {
+    console.lo(`Hola ${name}`)
 }
-try{
+try {
     salute("Jesus")
-}catch{
+} catch {
     console.log("ERROR: syntax")
 }
 
@@ -91,16 +91,40 @@ try {
 }
 
 // 8. Crea un bucle que intente transformar a float cada valor y capture y muestre los errores
-let various = [1,2,"Hola", true, 9, [1,2,3]]
-for (item of various){
-    try{
-        console.log(parseFloat(item))
-    }catch(ex){
-        if (ex instanceof TypeError)
-        console.log(ex.message)
-    }   
+let various = [1, 2, "Hola", true, 9, [1, 2, 3]]
+
+function convertToFloat(num) {
+    if (typeof num === "number") {
+        console.log(parseFloat(num))
+    } else {
+        throw new TypeError("Tipo de elemento no numérico");
+    }
+}
+for (let element of various) {
+    try {
+        convertToFloat(element)
+
+    } catch (ex) {
+        if (ex instanceof TypeError) {
+            console.log(ex.message)
+        }
+
+    }
 }
 
 // 9. Crea una función que verifique si un objeto tiene una propiedad específica y lance una excepción personalizada
+let person={
+    name: "Luis",
+    age: 30
+}
 
+function objectTest(property){
+    if (typeof person[property] === typeof undefined){
+        throw new Error("Propiedad no encontrada");
+        
+    }
+console.log(person[property])
+}
+objectTest("name")
+objectTest("heigth")
 // 10. Crea una función que realice reintentos en caso de error hasta un máximo de 10
