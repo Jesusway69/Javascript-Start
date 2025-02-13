@@ -113,18 +113,41 @@ for (let element of various) {
 }
 
 // 9. Crea una función que verifique si un objeto tiene una propiedad específica y lance una excepción personalizada
-let person={
+let person = {
     name: "Luis",
     age: 30
 }
 
-function objectTest(property){
-    if (typeof person[property] === typeof undefined){
-        throw new Error("Propiedad no encontrada");
-        
+function objectTest(property) {
+    let testProperty = person[property]
+    if (testProperty === undefined) {
+        console.error(`Propiedad ${property} no encontrada en el objeto person\n`)
+    }else{
+        console.log(person[property])
     }
-console.log(person[property])
+    
 }
+console.log()
 objectTest("name")
 objectTest("heigth")
+console.log()
+
+
 // 10. Crea una función que realice reintentos en caso de error hasta un máximo de 10
+let counter = 0
+function multiplyOnlyPeers(num) {
+    while (counter <= 9) {
+        let num2 = Math.floor(Math.random() * 10 + 1)
+        if (num2 % 2 == 0) {
+            console.log(`El número ${num2} es par y se puede multiplicar por ${num}, resultado = ${num * num2} `)
+
+        } else {
+            counter += 1
+            
+            console.error(`ERROR nº${counter}: el número aleatorio ${num2} ha sido impar y no se puede multiplicar`)
+
+        }
+    }
+}
+
+multiplyOnlyPeers(4)
