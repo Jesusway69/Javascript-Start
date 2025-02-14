@@ -122,10 +122,10 @@ function objectTest(property) {
     let testProperty = person[property]
     if (testProperty === undefined) {
         console.error(`Propiedad ${property} no encontrada en el objeto person\n`)
-    }else{
+    } else {
         console.log(person[property])
     }
-    
+
 }
 console.log()
 objectTest("name")
@@ -143,7 +143,7 @@ function multiplyOnlyPeers(num) {
 
         } else {
             counter += 1
-            
+
             console.error(`ERROR nº${counter}: el número aleatorio ${num2} ha sido impar y no se puede multiplicar`)
 
         }
