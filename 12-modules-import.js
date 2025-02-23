@@ -1,5 +1,5 @@
 import { Countries, myConst, salute } from "./12-modules-export.js"
-import { fromFolder } from "./export-folder/modules-export.js"
+import { ClassFromFolder, fromFolder } from "./export-folder/modules-export.js"
 import myDefaultImport from "./12-modules-export.js"
 
 /*
@@ -31,3 +31,5 @@ console.log(myDefaultImport())
 
 // 10. Importa una función, una constante y una clase desde un directorio diferente al anterior
 fromFolder()
+const classSalute = new ClassFromFolder()
+classSalute.classSalute()
