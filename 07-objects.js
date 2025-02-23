@@ -32,7 +32,7 @@ console.log(galaxyS25)
 galaxyS25.System()
 
 // 6. Itera las propiedades del objeto
-for (properties in galaxyS25) {
+for (let properties in galaxyS25) {
     console.log(properties, "=", galaxyS25[properties])
 }
 
@@ -43,7 +43,7 @@ let iphone16 = {
     category: "Smartphone",
     color: "Red",
     specs: {
-        processor: "a17",
+        processor: "a18",
         ram: "8gb"
     }
 }
