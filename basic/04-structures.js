@@ -1,3 +1,4 @@
+
 // 1. Crea un array que almacene cinco animales
 let animals = ["Avestruz", "Elefante", "Papagayo", "Cocodrilo", "Ballena"]
 console.log(animals)
