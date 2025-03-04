@@ -28,24 +28,23 @@ console.log("Array sólo con los números pares resultantes despues de elevar lo
 
 // 3. Utiliza flat y flatMap para crear un ejemplo diferente al de la lección
 console.log("Array anidado original", myNestedArray)
-// let flat1 = myNestedArray.flat(1)
-// let flat2 = myNestedArray.flat(2)
-// let flat3 = myNestedArray.flat(3)
-// let flat4 = myNestedArray.flat(4)
 let doubleFlatMap4 = myNestedArray.flat(4).flatMap(number => number * 2)
-console.log(`Array anidado sin una capa de profundidad:`, myNestedArray.flat(1))
-console.log(myNestedArray.flat(2))
-console.log(myNestedArray.flat(3))
-console.log(myNestedArray.flat(4))
-console.log(doubleFlatMap4)
+console.log("\nArray anidado sin una capa de profundidad:", myNestedArray.flat(1))
+console.log("\nArray anidado sin dos capas de profundidad:", myNestedArray.flat(2))
+console.log("\nArray anidado sin tres capas de profundidad:", myNestedArray.flat(3))
+console.log("\nArray anidado sin cuatro capas de profundidad:", myNestedArray.flat(4))
+console.log("\nArray con los números multiplicados por 2 con flatMap:", doubleFlatMap4)
 
 // 4. Ordena un array de números de mayor a menor
+console.log("\nArray de números random desordenados:", myUnsortedArray)
+let sorted = myUnsortedArray.sort((a, b) => a - b)
+console.log("\nArray de números random ordenados de menor a mayor:", sorted)
 let sortedReverse = myUnsortedArray.sort((a, b) => a - b).reverse()
-console.log(sortedReverse)
+console.log("\nArray de números random ordenados de mayor a menor:", sortedReverse)
 
 // 5. Dados dos sets, encuentra la unión, intersección y diferencia de ellos
 const myBirdSet1 = new Set(["Paloma", "Cuervo", "Papagayo", "Águila", "Avestruz", "Golondrina", "Cisne", "Gorrión", "Perdiz"])
-const myBirdSet2 = new Set(["Perdiz", "Cotorra", "Urraca", "Cuervo", "Halcón", "Paloma", "Vencejo", "Ganso", "Avestruz" ])
+const myBirdSet2 = new Set(["Perdiz", "Cotorra", "Urraca", "Cuervo", "Halcón", "Paloma", "Vencejo", "Ganso", "Avestruz"])
 const union = new Set([...myBirdSet1, ...myBirdSet2])
 const intersection = new Set([...myBirdSet1].filter(bird => myBirdSet2.has(bird)))
 const hasOnlySet1 = new Set([...myBirdSet1].filter(bird => !myBirdSet2.has(bird)))
@@ -53,32 +52,54 @@ const hasOnlySet2 = new Set([...myBirdSet2].filter(bird => !myBirdSet1.has(bird)
 
 // 6. Itera los resultados del ejercicio anterior
 console.log("\nElementos en el set1:")
-myBirdSet1.forEach(bird => console.log("-",bird))
+myBirdSet1.forEach(bird => console.log("-", bird))
 console.log("\nElementos en el set2:")
-myBirdSet2.forEach(bird => console.log("-",bird))
+myBirdSet2.forEach(bird => console.log("-", bird))
 console.log("\nUnión de ambos sets sin repetidos:")
-union.forEach(bird => console.log("-",bird))
+union.forEach(bird => console.log("-", bird))
 console.log("\nElementos que están en ambos sets:")
-intersection.forEach(bird => console.log("-",bird))
+intersection.forEach(bird => console.log("-", bird))
 console.log("\nElementos que están en el set1 pero no en el set2:")
-hasOnlySet1.forEach(bird => console.log("-",bird))
+hasOnlySet1.forEach(bird => console.log("-", bird))
 console.log("\nElementos que están en el set2 pero no en el set1:")
-hasOnlySet2.forEach(bird => console.log("-",bird))
+hasOnlySet2.forEach(bird => console.log("-", bird))
 
 
 // 7. Crea un mapa que almacene información se usuarios (nombre, edad y email) e itera los datos
-console.log("\nIteración sobre un Map con datos de un usuario:")
-const userJesus = new Map([
-    ["name", "Jesus"],
-    ["age", 47],
-    ["email", "jesus@gmail.com"],
+const usersMap = new Map([
+    [1, { name: "Jesus", age: 37, email: "jesus@gmail.com" }],
+    [2, { name: "Ana", age: 15, email: "ana@gmail.com" }],
+    [3, { name: "Jorge", age: 32, email: "jorge@gmail.com" }],
+    [4, { name: "Pedro", age: 17, email: "pedro@gmail.com" }],
+    [5, { name: "Sandra", age: 18, email: "sandra@gmail.com" }],
 ])
-userJesus.forEach((v,k) => console.log(`- ${k} = ${v}`))
+console.log("\nIteración sobre un Map con datos de los usuarios:")
+usersMap.forEach((v, k) => console.log(`- ${k} Nombre: ${v.name} , email: ${v.email}, edad: ${v.age}`))
 
 // 8. Dado el mapa anterior, crea un array con los nombres
-
+const arrayNames = Array.from(usersMap.values()).map(user => user.name)
+console.log("\nArray con los nombres del Map:", arrayNames)
 
 // 9. Dado el mapa anterior, obtén un array con los email de los usuarios mayores de edad y transfórmalo a un set
+const arraySeniorEmail = Array.from(usersMap.values()).filter(user => user.age >= 18).map(user => user.email)
+console.log("\nArray con los emails de los usuarios mayores de edad:", arraySeniorEmail)
 
-// 10. Transforma el mapa en un objeto, a continuación,
+
+// 10. Transforma el mapa en un objeto y a continuación
 //  transforma el objeto en un mapa con clave el email de cada usuario y como valor todos los datos del usuario
+const fromMapToObject = Object.fromEntries(usersMap)
+console.log("\nMap transformado a Object:", fromMapToObject)
+
+let fromObjectToMap = new Map(Object.entries(fromMapToObject))
+
+for (let i = 1; i <= fromObjectToMap.size; i++) {
+    fromObjectToMap.set(fromObjectToMap.get(i.toString()).email, fromObjectToMap.get(i.toString()))
+    fromObjectToMap.delete(i.toString())
+}
+console.log("\nObject transformado a Map con los email como claves:", fromObjectToMap)
+
+let unsorted = [3, 4, 1, 6, 10]
+let sorted2 = unsorted.sort((a, b) => a - b)
+console.log(sorted2)
+let sorted3 = unsorted.sort((a, b) => a - b).reverse()
+console.log(sorted3)
