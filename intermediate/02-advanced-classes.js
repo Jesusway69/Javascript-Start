@@ -124,29 +124,32 @@ console.log(jesus)
 console.log(pepe)
 
 // 10. Desarrolla un Proxy
+class Stock {
+    constructor(units) {
+        this.units = units
+    }
+}
 
 const proxy = {
     get(target, property) {
-        console.log(`Se accede a la propiedad ${property}`)
+        console.log(`El stock es de ${target[property]} unidades`)
         return target[property]
     },
-    set(target, property, value) {
-        if (property === "balance" && value < 0) {
-            throw new Error("El saldo no puede ser negativo")
+    set(target, property, amount) {
+        if (!Number.isInteger(amount) || amount < 0) {
+            throw new Error("No se admite un dato no numérico o menor a 0")
         }
-        target[property] = value
-        return target//esto era lo que faltaba
+        
+        console.log(`Stock actual: ${target[property]}`)
+        target[property] = amount
+        console.log(`Unidades vendidas en esta operación: ${amount}`)
+        console.log(`El stock actualizado es de ${target[property]} unidades`)
+        return target
+        
     }
 }
 
-class BankAccount {
-    constructor(balance) {
-        this.balance = balance
-    }
-}
+let stock = new Proxy(new Stock(500), proxy)
+stock.units -= 50
 
-let account = new Proxy(new BankAccount(100), proxy)
-console.log(account.balance);
 
-account.balance = "40";
-console.log(account.balance)
