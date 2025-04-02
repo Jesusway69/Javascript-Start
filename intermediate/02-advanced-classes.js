@@ -132,7 +132,7 @@ class Stock {
 
 const proxy = {
     get(target, property) {
-        console.log(`El stock es de ${target[property]} unidades`)
+        console.log(`\nEl stock es de ${target[property]} unidades`)
         return target[property]
     },
     set(target, property, amount) {
