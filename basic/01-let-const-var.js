@@ -48,8 +48,8 @@ console.log(("Hola" != "Hola " && "Javascript" == "Javascript") || true === fals
 console.log(64 ** 2 == 4096 ? "64^2 es 4096" : "64^2 no es 4096")
 
 // 10. Combina operadores aritméticos, de comparáción y lógicas
-right = (1 ** 2 < 2 && 24 === 6 * 4) || (65 != 32 * 2 || "Hola" !== "Hello")
-wrong = (1 ** 2 < 2 || 24 === 6 * 4) && (65 == 32 * 2 || "Hola" === "Hello")
+const right = (1 ** 2 < 2 && 24 === 6 * 4) || (65 != 32 * 2 || "Hola" !== "Hello")
+const wrong = (1 ** 2 < 2 || 24 === 6 * 4) && (65 == 32 * 2 || "Hola" === "Hello")
 console.log(right)
 console.log(wrong)
 
