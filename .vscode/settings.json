@@ -16,7 +16,7 @@
   "editor.smoothScrolling": true,
   "editor.minimap.enabled": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
-  "terminal.integrated.defaultProfile.osx":"bash",
+  "terminal.integrated.defaultProfile.osx":"zsh",
   "code-runner.ignoreSelection": true,
   "terminal.explorerKind": "integrated"
 }

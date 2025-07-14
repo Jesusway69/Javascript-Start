@@ -41,7 +41,7 @@ console.log(`${numbers[2]} elevado a ${numbers[6]} es: ${pow(numbers[2], numbers
 function createCounter(num) {
 
     return {
-        increment: function () {//Si no utiliza una propiedad del objeto con this. se puede desarrolar
+        increment: function () {//Si no utiliza una propiedad del objeto con this. se puede desarrollar
             num++                //  la closure tanto con función anónima como con arrow funtcion
             console.log(`Contador creciente = ${num}`)
         },
@@ -84,7 +84,7 @@ console.log(`Resultado de la suma de los números del 1 al 6 multiplicado por ${
 // 6. Crea un Callback que se invoque con el resultado de la suma de todos los números que se le pasan a una función
 function process1(callback, ...numbers) { //Modo1 con parámetros numéricos rest enviados independientemente
     let acc = 0
-    for (number of numbers) {
+    for (let number of numbers) {
         acc = number += acc
     }
 
@@ -92,7 +92,7 @@ function process1(callback, ...numbers) { //Modo1 con parámetros numéricos res
 }
 function process2(callback, numbers) { //Modo2 con los números a operar dentro de un array, la lógica dentro de la función
     let acc = 0                        //  es exactamente igual que en el caso anterior
-    for (number of numbers) {
+    for (let number of numbers) {
         acc = number += acc
     }
 
@@ -118,7 +118,7 @@ console.log(firstWord("Javascript"))
 // 8. Implementa un ejemplo que haga uso de Spread
 function double(...numbers) {
     let listdouble = []
-    for (number of numbers) {
+    for (let number of numbers) {
         listdouble.push(number * 2)
     }
     console.log(`Secuencia original: ${numbers}`)
