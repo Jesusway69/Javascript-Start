@@ -37,26 +37,71 @@ console.log("9 + 8 =", sumReturn(9, 8), '\n')
 // FUNCIÓN SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN CON RETORNO
 function sumSpreadingReturn(...numbers) {
     let acc = 0
-    for (let number of numbers) {
+    operation = ''
+    for (const [index, number] of numbers.entries()) {
         acc += number
+        if (index < numbers.length - 1) {
+            operation += number + ' + '
+        } else {
+            operation += number + ' = '
+        }
+
     }
-    return acc
+    return operation + acc
 }
-console.log("7 + 8 + 3 + 14 + 25 =", sumSpreadingReturn(7, 8, 3, 14, 25, '\n'))
+console.log(sumSpreadingReturn(7, 8, 3, 14, 25))
+console.log(sumSpreadingReturn(8, 9, 11, 50, 14, 8, 71, 63, 2, 32))
+
 // FUNCIÓN SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN SIN RETORNO
 function sumSpreadingPrint(...numbers) {
     let acc = 0
     let operation = ''
     for (let i = 0; i < numbers.length; i++) {
         acc += numbers[i]
-        if (i < numbers.length - 2) {
+        if (i < numbers.length - 1) {
             operation += numbers[i] + ' + '
-        } else if (i < numbers.length - 1) {
-            operation += numbers[i]
         } else {
-            operation += ' ='
+            operation += numbers[i] + ' ='
         }
     }
-    console.log(operation,acc)
+    console.log(operation, acc)
 }
-sumSpreadingPrint(8, 7, 1, 16, 52, 9, 13, 4, '\n')
+sumSpreadingPrint(8, 7, 1, 16, 52, 9, 13, 4)
+sumSpreadingPrint(5, 1, 7, 0.3, 10, 4)
+sumSpreadingPrint(5, 8, 100, 50)
+
+// FUNCIÓN ANÓNIMA SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN CON RETORNO
+const anonymousFunction = function (...numbers) {
+    let acc = 0
+    operation = ''
+    for (const [index, number] of numbers.entries()) {
+        acc += number
+        if (index < numbers.length - 1) {
+            operation += number + ' + '
+        } else {
+            operation += number + ' = '
+        }
+
+    }
+    return operation + acc
+}
+
+console.log(anonymousFunction(4, 48, 7, 9, 10, 2, 1, 20))
+
+// FUNCIÓN FLECHA SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN CON RETORNO
+const anonymousArrowFunction = (...numbers) => {
+ let acc = 0
+    operation = ''
+    for (const [index, number] of numbers.entries()) {
+        acc += number
+        if (index < numbers.length - 1) {
+            operation += number + ' + '
+        } else {
+            operation += number + ' = '
+        }
+
+    }
+    return operation + acc
+}
+
+console.log(anonymousArrowFunction(1,7,8))
