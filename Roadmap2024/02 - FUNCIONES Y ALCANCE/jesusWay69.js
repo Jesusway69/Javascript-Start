@@ -14,6 +14,12 @@ console.clear()
  * Cada lenguaje sigue una convenciones que debes de respetar para que el código se entienda.
  */
 
+// VARIABLES GLOBALES
+var acc = 0
+var operation = ''
+var globalVariable = "Soy una variable global"
+var string1 = "Hola"
+var string2 = "Javascript"
 
 //FUNCIÓN SUMA SIMPLE SIN RETORNO
 function sumPrint(a, b) {
@@ -40,16 +46,12 @@ console.log(sumArrowFuntcion(50, 50), '\n')
 
 // FUNCIÓN SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN CON RETORNO
 function sumSpreadingReturn(...numbers) {
-    let acc = 0
+    acc = 0
     operation = ''
     for (const [index, number] of numbers.entries()) {
         acc += number
-        if (index < numbers.length - 1) {
-            operation += number + ' + '
-        } else {
-            operation += number + ' = '
-        }
-
+        if (index < numbers.length - 1) operation += number + ' + '
+        else operation += number + ' = '
     }
     return operation + acc
 }
@@ -58,15 +60,12 @@ console.log(sumSpreadingReturn(8, 9, 11, 50, 14, 8, 71, 63, 2, 32), '\n')
 
 // FUNCIÓN SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN SIN RETORNO
 function sumSpreadingPrint(...numbers) {
-    let acc = 0
-    let operation = ''
+    acc = 0
+    operation = ''
     for (let i = 0; i < numbers.length; i++) {
         acc += numbers[i]
-        if (i < numbers.length - 1) {
-            operation += numbers[i] + ' + '
-        } else {
-            operation += numbers[i] + ' ='
-        }
+        if (i < numbers.length - 1) operation += numbers[i] + ' + '
+        else operation += numbers[i] + ' ='
     }
     console.log(operation, acc, '\n')
 }
@@ -94,7 +93,7 @@ console.log(anonymousFunction(3.56, 4.88, 9.48, 1.22, 5.71, 3.24, 6.91), '\n')
 
 // FUNCIÓN FLECHA SUMA CON OPERANDOS VARIABLES POR PROPAGACIÓN CON RETORNO
 const anonymousArrowFunction = (...numbers) => {
-    let acc = 0
+    acc = 0
     operation = ''
     for (const [index, number] of numbers.entries()) {
         acc += number
@@ -111,8 +110,6 @@ console.log(anonymousArrowFunction(1, 7, 8), '\n')
 console.log(anonymousArrowFunction(47, 72, 98), '\n')
 
 // FUNCIÓN QUE IMPRIME UNA VARIABLE LOCAL DECLARADA DENTRO Y OTRA GLOBAL DECLARADA FUERA
-var globalVariable = "Soy una variable global"
-
 let printVariables = function () {
     let localVariable = "Soy una variable local"
     console.log(localVariable)
@@ -126,7 +123,7 @@ const simpleNumbers = [0, 1, 2, 3, 4, 5, 6, 7]
 const base2Value = simpleNumbers.map(function (num) {
     return 2 ** num
 })
-console.log(base2Value)
+console.log('\n', base2Value, '\n')
 
 // FUNCIÓN FLECHA QUE RECIBE UN NÚMERO Y UTILIZA INTERNAMENTE LA FUNCIÓN ANTERIOR PARA
 // DEVOLVER EL NÚMERO BINARIO DEL NÚMERO RECIBIDO
@@ -142,7 +139,7 @@ let decToBin = (num) => {
     }
     return bin
 }
-console.log(decToBin(100))
+console.log(decToBin(100), '\n')
 
 /*
 * DIFICULTAD EXTRA (opcional):
@@ -153,9 +150,6 @@ console.log(decToBin(100))
 *   - Si el número es múltiplo de 3 y de 5, muestra las dos cadenas de texto concatenadas.
 *   - La función retorna el número de veces que se ha impreso el número en lugar de los textos.
 */
-
-let string1 = "Hola"
-let string2 = "Javascript"
 
 function numbers(str1, str2) {
     let counter = 0
@@ -170,5 +164,4 @@ function numbers(str1, str2) {
     }
     console.log(`\nLos números se han impreso ${counter} veces \n`)
 }
-
 numbers(string1, string2)
